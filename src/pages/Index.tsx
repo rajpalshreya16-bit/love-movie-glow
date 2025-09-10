@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { Heart, Sparkles, Film } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/hooks/use-toast';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import AboutSection from '@/components/AboutSection';
+import ContactSection from '@/components/ContactSection';
 import MovieCard from '@/components/MovieCard';
 import FilterBar from '@/components/FilterBar';
 import { movies, Movie } from '@/data/movies';
@@ -31,20 +35,26 @@ const Index = () => {
     if (navigator.share) {
       navigator.share({
         title: `Check out ${movie.title}!`,
-        text: `I found this amazing romantic movie: ${movie.title} (${movie.year}). ${movie.description}`,
+        text: `I found this amazing romantic movie on Lovify: ${movie.title} (${movie.year}). ${movie.description}`,
         url: window.location.href,
       });
     } else {
-      navigator.clipboard.writeText(`Check out ${movie.title} (${movie.year}) - ${movie.description}`);
+      navigator.clipboard.writeText(`Check out ${movie.title} (${movie.year}) on Lovify - ${movie.description}`);
       toast({ title: "Link copied! ✨", description: "Share this movie with your friends" });
     }
   };
 
+  const scrollToMovies = () => {
+    document.getElementById('movies')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <Header />
+      
       {/* Hero Section */}
       <section 
-        className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{
           backgroundImage: `url(${heroBackground})`,
           backgroundSize: 'cover',
@@ -55,23 +65,29 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-hero backdrop-blur-[2px]" />
         
         {/* Hero Content */}
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <Film className="h-8 w-8 text-foreground" />
-            <h1 className="font-playfair text-5xl md:text-7xl font-bold text-foreground">
-              Love<span className="text-primary">Reels</span>
+        <div className="relative z-10 text-center max-w-5xl mx-auto px-6 pt-20">
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <Film className="h-10 w-10 text-foreground animate-float" />
+            <h1 className="font-playfair text-6xl md:text-8xl font-bold text-foreground">
+              Lov<span className="text-primary">ify</span>
             </h1>
-            <Sparkles className="h-8 w-8 text-primary" />
+            <Sparkles className="h-10 w-10 text-primary animate-float" style={{ animationDelay: '0.5s' }} />
           </div>
           
-          <p className="text-xl md:text-2xl text-foreground/80 mb-8 font-inter leading-relaxed">
-            Discover the most beautiful Hollywood love stories, from timeless classics to modern romances
+          <p className="text-2xl md:text-3xl text-foreground/90 mb-4 font-inter leading-relaxed">
+            Discover Your Perfect Romance Movies
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <p className="text-lg md:text-xl text-foreground/80 mb-12 font-inter leading-relaxed max-w-3xl mx-auto">
+            From timeless classics that defined love on screen to modern masterpieces that capture hearts today. 
+            Find, save, and share the most beautiful romantic stories ever told.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-soft font-inter font-medium px-8 py-6 text-lg"
+              onClick={scrollToMovies}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow font-inter font-medium px-10 py-6 text-lg"
             >
               <Heart className="h-5 w-5 mr-2" />
               Explore Movies
@@ -79,24 +95,25 @@ const Index = () => {
             <Button 
               size="lg" 
               variant="outline"
-              className="bg-card/30 backdrop-blur-md border-border/50 hover:bg-card/50 font-inter font-medium px-8 py-6 text-lg"
+              className="bg-card/30 backdrop-blur-md border-border/50 hover:bg-card/50 font-inter font-medium px-10 py-6 text-lg"
             >
-              My Favorites ({likedMovies.size})
+              My Collection ({likedMovies.size})
             </Button>
           </div>
         </div>
         
         {/* Floating Hearts Animation */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {Array.from({ length: 6 }, (_, i) => (
+          {Array.from({ length: 8 }, (_, i) => (
             <Heart 
               key={i}
-              className={`absolute text-primary/20 animate-pulse`}
+              className="absolute text-primary/20 animate-pulse"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animationDelay: `${i * 0.5}s`,
-                fontSize: `${Math.random() * 20 + 10}px`
+                animationDelay: `${i * 0.7}s`,
+                fontSize: `${Math.random() * 24 + 12}px`,
+                animationDuration: `${3 + Math.random() * 2}s`
               }}
             />
           ))}
@@ -104,69 +121,58 @@ const Index = () => {
       </section>
 
       {/* Movies Section */}
-      <section className="container mx-auto px-6 py-16">
-        <div className="text-center mb-12">
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Curated Love Stories
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-inter">
-            From epic romances that defined generations to modern love stories that capture our hearts
-          </p>
-        </div>
-
-        {/* Filter Bar */}
-        <FilterBar 
-          selectedDecade={selectedDecade} 
-          onDecadeChange={setSelectedDecade} 
-        />
-
-        {/* Movies Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-          {filteredMovies.map((movie) => (
-            <MovieCard
-              key={movie.id}
-              movie={movie}
-              onLike={handleLike}
-              onShare={handleShare}
-            />
-          ))}
-        </div>
-
-        {filteredMovies.length === 0 && (
-          <div className="text-center py-16">
-            <Heart className="h-16 w-16 text-muted-foreground/50 mx-auto mb-4" />
-            <p className="text-xl text-muted-foreground font-inter">
-              No movies found for this decade. Try selecting a different time period!
+      <section id="movies" className="py-24 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="font-playfair text-4xl md:text-6xl font-bold text-foreground mb-6">
+              Curated Love Stories
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter leading-relaxed">
+              From epic romances that defined generations to intimate love stories that capture the heart. 
+              Every film is carefully selected to showcase the beauty of love in all its forms.
             </p>
           </div>
-        )}
-      </section>
 
-      {/* Stats Section */}
-      <section className="bg-gradient-romantic py-16">
-        <div className="container mx-auto px-6 text-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="font-playfair text-3xl font-bold text-foreground mb-2">
-                {movies.length}+
-              </h3>
-              <p className="text-foreground/80 font-inter">Curated Love Stories</p>
-            </div>
-            <div>
-              <h3 className="font-playfair text-3xl font-bold text-foreground mb-2">
-                {likedMovies.size}
-              </h3>
-              <p className="text-foreground/80 font-inter">Movies in Your Collection</p>
-            </div>
-            <div>
-              <h3 className="font-playfair text-3xl font-bold text-foreground mb-2">
-                80+
-              </h3>
-              <p className="text-foreground/80 font-inter">Years of Romance</p>
-            </div>
+          {/* Filter Bar */}
+          <FilterBar 
+            selectedDecade={selectedDecade} 
+            onDecadeChange={setSelectedDecade} 
+          />
+
+          {/* Movies Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+            {filteredMovies.map((movie) => (
+              <MovieCard
+                key={movie.id}
+                movie={movie}
+                onLike={handleLike}
+                onShare={handleShare}
+              />
+            ))}
           </div>
+
+          {filteredMovies.length === 0 && (
+            <div className="text-center py-20">
+              <Heart className="h-20 w-20 text-muted-foreground/50 mx-auto mb-6" />
+              <p className="text-2xl text-muted-foreground font-inter">
+                No movies found for this decade.
+              </p>
+              <p className="text-lg text-muted-foreground/70 font-inter mt-2">
+                Try selecting a different time period to discover more love stories!
+              </p>
+            </div>
+          )}
         </div>
       </section>
+
+      {/* About Section */}
+      <AboutSection />
+
+      {/* Contact Section */}
+      <ContactSection />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
