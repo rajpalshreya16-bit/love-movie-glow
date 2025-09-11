@@ -11,6 +11,20 @@ import herPoster from '@/assets/posters/her.jpg';
 import romanHolidayPoster from '@/assets/posters/roman-holiday.jpg';
 import shapeOfWaterPoster from '@/assets/posters/shape-of-water.jpg';
 import sleeplessInSeattlePoster from '@/assets/posters/sleepless-in-seattle.jpg';
+import dirtyDancingPoster from '@/assets/posters/dirty-dancing.jpg';
+import prettyWomanPoster from '@/assets/posters/pretty-woman.jpg';
+import whenHarryMetSallyPoster from '@/assets/posters/when-harry-met-sally.jpg';
+import princessBridePoster from '@/assets/posters/princess-bride.jpg';
+import youveGotMailPoster from '@/assets/posters/youve-got-mail.jpg';
+import forrestGumpPoster from '@/assets/posters/forrest-gump.jpg';
+import topGunPoster from '@/assets/posters/top-gun.jpg';
+import moulinRougePoster from '@/assets/posters/moulin-rouge.jpg';
+
+export interface Song {
+  title: string;
+  artist: string;
+  spotifyUrl?: string;
+}
 
 export interface Movie {
   id: number;
@@ -21,6 +35,7 @@ export interface Movie {
   genre: string;
   description: string;
   decade: string;
+  songs?: Song[];
 }
 
 export const movies: Movie[] = [
@@ -32,7 +47,24 @@ export const movies: Movie[] = [
     rating: 7.8,
     genre: "Romance",
     description: "A poor yet passionate young man falls in love with a rich young woman, giving her a sense of freedom.",
-    decade: "2000s"
+    decade: "2000s",
+    songs: [
+      {
+        title: "I'm Not the Only One",
+        artist: "Sam Smith",
+        spotifyUrl: "https://open.spotify.com/track/4i9sYtSIlR80bxje5B3rUb"
+      },
+      {
+        title: "Such Great Heights",
+        artist: "Iron & Wine",
+        spotifyUrl: "https://open.spotify.com/track/6zyfZDjYqjJCH23GWPxh7J"
+      },
+      {
+        title: "I See You",
+        artist: "Leona Lewis",
+        spotifyUrl: "https://open.spotify.com/track/0r8CnVhv9qVUHFYlzMmAId"
+      }
+    ]
   },
   {
     id: 2,
@@ -42,7 +74,24 @@ export const movies: Movie[] = [
     rating: 7.9,
     genre: "Romance",
     description: "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
-    decade: "1990s"
+    decade: "1990s",
+    songs: [
+      {
+        title: "My Heart Will Go On",
+        artist: "Celine Dion",
+        spotifyUrl: "https://open.spotify.com/track/3SdTKo2uVsxFblQjpScoHy"
+      },
+      {
+        title: "Southampton",
+        artist: "James Horner",
+        spotifyUrl: "https://open.spotify.com/track/7vSiNKmcPq6FjhJT9SczPY"
+      },
+      {
+        title: "Rose",
+        artist: "James Horner",
+        spotifyUrl: "https://open.spotify.com/track/4bM2CQbxP1LdaHwWmzjNPY"
+      }
+    ]
   },
   {
     id: 3,
@@ -62,7 +111,29 @@ export const movies: Movie[] = [
     rating: 8.0,
     genre: "Musical Romance",
     description: "While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future.",
-    decade: "2010s"
+    decade: "2010s",
+    songs: [
+      {
+        title: "City of Stars",
+        artist: "Ryan Gosling",
+        spotifyUrl: "https://open.spotify.com/track/3SdTKo2uVsxFblQjpScoHy"
+      },
+      {
+        title: "Someone in the Crowd",
+        artist: "Emma Stone, Callie Hernandez, Sonoya Mizuno, Jessica Rothe",
+        spotifyUrl: "https://open.spotify.com/track/4JxIwYFcJmSNl2n8nkSuM9"
+      },
+      {
+        title: "A Lovely Night",
+        artist: "Ryan Gosling & Emma Stone",
+        spotifyUrl: "https://open.spotify.com/track/2AmJzGbSYp5qzQGXhXg4Sq"
+      },
+      {
+        title: "Audition (The Fools Who Dream)",
+        artist: "Emma Stone",
+        spotifyUrl: "https://open.spotify.com/track/7J5pY3b5S8hTfLT1I1yXgY"
+      }
+    ]
   },
   {
     id: 5,
@@ -148,7 +219,7 @@ export const movies: Movie[] = [
     id: 13,
     title: "When Harry Met Sally",
     year: 1989,
-    poster: "/placeholder.svg",
+    poster: whenHarryMetSallyPoster,
     rating: 7.7,
     genre: "Romance Comedy",
     description: "Harry and Sally have known each other for years, and are very good friends, but they fear sex would ruin the friendship.",
@@ -158,11 +229,33 @@ export const movies: Movie[] = [
     id: 14,
     title: "Dirty Dancing",
     year: 1987,
-    poster: "/placeholder.svg",
+    poster: dirtyDancingPoster,
     rating: 7.0,
     genre: "Romance Drama",
     description: "Spending the summer at a Catskills resort with her family, Frances 'Baby' Houseman falls in love with the camp's dance instructor.",
-    decade: "1980s"
+    decade: "1980s",
+    songs: [
+      {
+        title: "(I've Had) The Time of My Life",
+        artist: "Bill Medley & Jennifer Warnes",
+        spotifyUrl: "https://open.spotify.com/track/4JLakgLUICMINJsLSG9Vc9"
+      },
+      {
+        title: "Hungry Eyes",
+        artist: "Eric Carmen",
+        spotifyUrl: "https://open.spotify.com/track/7MBXH3z5oQNDzbKRRBk5qg"
+      },
+      {
+        title: "She's Like the Wind",
+        artist: "Patrick Swayze",
+        spotifyUrl: "https://open.spotify.com/track/1xziY2hm2nf7qjYV6JhLqv"
+      },
+      {
+        title: "Be My Baby",
+        artist: "The Ronettes",
+        spotifyUrl: "https://open.spotify.com/track/1l6CsEAjdWmV5ZKJm2lFYs"
+      }
+    ]
   },
   {
     id: 15,
@@ -238,11 +331,33 @@ export const movies: Movie[] = [
     id: 22,
     title: "Pretty Woman",
     year: 1990,
-    poster: "/placeholder.svg",
+    poster: prettyWomanPoster,
     rating: 7.0,
     genre: "Romance Comedy",
     description: "A man in a legal but hurtful business needs an escort for some social events, and hires a beautiful prostitute he meets... only to fall in love.",
-    decade: "1990s"
+    decade: "1990s",
+    songs: [
+      {
+        title: "Oh, Pretty Woman",
+        artist: "Roy Orbison",
+        spotifyUrl: "https://open.spotify.com/track/5Rl8UZ1cqsI33MtqhCj5VA"
+      },
+      {
+        title: "King of Wishful Thinking",
+        artist: "Go West",
+        spotifyUrl: "https://open.spotify.com/track/1xGqOKd1MJ14k0w7wPkfpJ"
+      },
+      {
+        title: "It Must Have Been Love",
+        artist: "Roxette",
+        spotifyUrl: "https://open.spotify.com/track/4t2cYFd17YwSjYlvowBFX1"
+      },
+      {
+        title: "Fallen",
+        artist: "Lauren Wood",
+        spotifyUrl: "https://open.spotify.com/track/2UvwSrCr9V5FQYUPZRb9xw"
+      }
+    ]
   },
   {
     id: 23,
@@ -308,11 +423,33 @@ export const movies: Movie[] = [
     id: 29,
     title: "Moulin Rouge!",
     year: 2001,
-    poster: "/placeholder.svg",
+    poster: moulinRougePoster,
     rating: 7.6,
     genre: "Musical Romance",
     description: "A poor Bohemian poet in 1890s Paris falls for a beautiful courtesan and nightclub star whom a jealous duke covets.",
-    decade: "2000s"
+    decade: "2000s",
+    songs: [
+      {
+        title: "Lady Marmalade",
+        artist: "Christina Aguilera, Lil' Kim, Mýa, Pink",
+        spotifyUrl: "https://open.spotify.com/track/0l1oIgzSkkEGXPzFPzT2V4"
+      },
+      {
+        title: "Come What May",
+        artist: "Nicole Kidman & Ewan McGregor",
+        spotifyUrl: "https://open.spotify.com/track/6V2UdwTt3XHSI7cNuHfZH1"
+      },
+      {
+        title: "Elephant Love Medley",
+        artist: "Nicole Kidman & Ewan McGregor",
+        spotifyUrl: "https://open.spotify.com/track/4gzpzMOPyV5N5Y3KVBj3Zs"
+      },
+      {
+        title: "Your Song",
+        artist: "Ewan McGregor",
+        spotifyUrl: "https://open.spotify.com/track/5JLoxcvLj4wE0VLM6DKuqa"
+      }
+    ]
   },
   {
     id: 30,

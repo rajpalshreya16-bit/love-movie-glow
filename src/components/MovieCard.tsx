@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Heart, Share2, Calendar, Star } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -22,6 +23,7 @@ interface MovieCardProps {
 export default function MovieCard({ movie, onLike, onShare }: MovieCardProps) {
   const [isLiked, setIsLiked] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
 
   const handleLike = () => {
     setIsLiked(!isLiked);
@@ -32,11 +34,16 @@ export default function MovieCard({ movie, onLike, onShare }: MovieCardProps) {
     onShare?.(movie);
   };
 
+  const handleCardClick = () => {
+    navigate(`/movie/${movie.id}`);
+  };
+
   return (
     <Card 
       className="group relative overflow-hidden bg-card border-border shadow-soft hover:shadow-glow transition-all duration-300 cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleCardClick}
     >
       {/* Movie Poster */}
       <div className="relative aspect-[2/3] overflow-hidden">
