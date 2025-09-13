@@ -47,12 +47,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Custom pastel colors
-        blush: "hsl(var(--blush))",
+        // Custom gentle colors
+        sage: "hsl(var(--sage))",
         lavender: "hsl(var(--lavender))",
-        peach: "hsl(var(--peach))",
-        mint: "hsl(var(--mint))",
         cream: "hsl(var(--cream))",
+        mist: "hsl(var(--mist))",
+        stone: "hsl(var(--stone))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

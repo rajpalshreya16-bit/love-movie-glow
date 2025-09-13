@@ -14,10 +14,15 @@ import heroBackground from '@/assets/hero-bg.jpg';
 const Index = () => {
   const [selectedDecade, setSelectedDecade] = useState('all');
   const [likedMovies, setLikedMovies] = useState<Set<number>>(new Set());
+  const [showFavorites, setShowFavorites] = useState(false);
 
-  const filteredMovies = selectedDecade === 'all' 
+  const baseFilteredMovies = selectedDecade === 'all' 
     ? movies 
     : movies.filter(movie => movie.decade === selectedDecade);
+  
+  const filteredMovies = showFavorites 
+    ? baseFilteredMovies.filter(movie => likedMovies.has(movie.id))
+    : baseFilteredMovies;
 
   const handleLike = (movieId: number) => {
     const newLikedMovies = new Set(likedMovies);
@@ -95,9 +100,11 @@ const Index = () => {
             <Button 
               size="lg" 
               variant="outline"
+              onClick={() => setShowFavorites(!showFavorites)}
               className="bg-card/30 backdrop-blur-md border-border/50 hover:bg-card/50 font-inter font-medium px-10 py-6 text-lg"
             >
-              My Collection ({likedMovies.size})
+              <Heart className="h-5 w-5 mr-2" fill={showFavorites ? "currentColor" : "none"} />
+              My Favorites ({likedMovies.size})
             </Button>
           </div>
         </div>
@@ -125,11 +132,13 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="font-playfair text-4xl md:text-6xl font-bold text-foreground mb-6">
-              Curated Love Stories
+              {showFavorites ? 'Your Favorite Movies' : 'Curated Love Stories'}
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter leading-relaxed">
-              From epic romances that defined generations to intimate love stories that capture the heart. 
-              Every film is carefully selected to showcase the beauty of love in all its forms.
+              {showFavorites 
+                ? 'All the romantic movies you\'ve fallen in love with, collected in one beautiful place.'
+                : 'From epic romances that defined generations to intimate love stories that capture the heart. Every film is carefully selected to showcase the beauty of love in all its forms.'
+              }
             </p>
           </div>
 
@@ -155,11 +164,22 @@ const Index = () => {
             <div className="text-center py-20">
               <Heart className="h-20 w-20 text-muted-foreground/50 mx-auto mb-6" />
               <p className="text-2xl text-muted-foreground font-inter">
-                No movies found for this decade.
+                {showFavorites ? 'No favorite movies yet.' : 'No movies found for this decade.'}
               </p>
               <p className="text-lg text-muted-foreground/70 font-inter mt-2">
-                Try selecting a different time period to discover more love stories!
+                {showFavorites 
+                  ? 'Start liking movies to build your personal collection!'
+                  : 'Try selecting a different time period to discover more love stories!'
+                }
               </p>
+              {showFavorites && (
+                <Button 
+                  onClick={() => setShowFavorites(false)}
+                  className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
+                  Explore All Movies
+                </Button>
+              )}
             </div>
           )}
         </div>
