@@ -47,12 +47,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Custom gentle colors
-        sage: "hsl(var(--sage))",
-        lavender: "hsl(var(--lavender))",
-        cream: "hsl(var(--cream))",
-        mist: "hsl(var(--mist))",
-        stone: "hsl(var(--stone))",
+        // Custom dark colors
+        'dark-purple': "hsl(var(--dark-purple))",
+        'deep-black': "hsl(var(--deep-black))",
+        charcoal: "hsl(var(--charcoal))",
+        silver: "hsl(var(--silver))",
+        midnight: "hsl(var(--midnight))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

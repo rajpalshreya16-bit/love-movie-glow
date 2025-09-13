@@ -18,15 +18,14 @@ interface MovieCardProps {
   movie: Movie;
   onLike?: (movieId: number) => void;
   onShare?: (movie: Movie) => void;
+  isLiked?: boolean;
 }
 
-export default function MovieCard({ movie, onLike, onShare }: MovieCardProps) {
-  const [isLiked, setIsLiked] = useState(false);
+export default function MovieCard({ movie, onLike, onShare, isLiked = false }: MovieCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
 
   const handleLike = () => {
-    setIsLiked(!isLiked);
     onLike?.(movie.id);
   };
 

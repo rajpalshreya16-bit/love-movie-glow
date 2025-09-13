@@ -48,6 +48,26 @@ import aboutTimePoster from '@/assets/posters/about-time.jpg';
 import midnightInParisPoster from '@/assets/posters/midnight-in-paris.jpg';
 import crazyStupidLovePoster from '@/assets/posters/crazy-stupid-love.jpg';
 import theProposalPoster from '@/assets/posters/the-proposal.jpg';
+// New poster imports
+import winADateWithTadHamiltonPoster from '@/assets/posters/win-a-date-with-tad-hamilton.jpg';
+import justLikeHeavenPoster from '@/assets/posters/just-like-heaven.jpg';
+import madeOfHonorPoster from '@/assets/posters/made-of-honor.jpg';
+import whatHappensInVegasPoster from '@/assets/posters/what-happens-in-vegas.jpg';
+import theUglyTruthPoster from '@/assets/posters/the-ugly-truth.jpg';
+import valentinesDayPoster from '@/assets/posters/valentines-day.jpg';
+import lettersToJulietPoster from '@/assets/posters/letters-to-juliet.jpg';
+import lifeAsWeKnowItPoster from '@/assets/posters/life-as-we-know-it.jpg';
+import newYearsEvePoster from '@/assets/posters/new-years-eve.jpg';
+import friendsWithBenefitsPoster from '@/assets/posters/friends-with-benefits.jpg';
+import noStringsAttachedPoster from '@/assets/posters/no-strings-attached.jpg';
+import theSwitchPoster from '@/assets/posters/the-switch.jpg';
+import whatsYourNumberPoster from '@/assets/posters/whats-your-number.jpg';
+import theChoicePoster from '@/assets/posters/the-choice.jpg';
+import theLongestRidePoster from '@/assets/posters/the-longest-ride.jpg';
+import beginAgainPoster from '@/assets/posters/begin-again.jpg';
+import theAgeOfAdalinePoster from '@/assets/posters/the-age-of-adaline.jpg';
+import likeCrazyPoster from '@/assets/posters/like-crazy.jpg';
+import blueValentinePoster from '@/assets/posters/blue-valentine.jpg';
 import theLuckyOnePoster from '@/assets/posters/the-lucky-one.jpg';
 import aWalkToRememberPoster from '@/assets/posters/a-walk-to-remember.jpg';
 import theLastSongPoster from '@/assets/posters/the-last-song.jpg';
@@ -1814,7 +1834,7 @@ export const movies: Movie[] = [
     id: 85,
     title: "Win a Date with Tad Hamilton!",
     year: 2004,
-    poster: "/placeholder.svg",
+    poster: winADateWithTadHamiltonPoster,
     rating: 5.6,
     genre: "Romance Comedy",
     description: "A small-town girl wins a date with a Hollywood star through a contest. When the date goes better than expected, a love triangle forms between the girl, the celebrity, and the girl's best friend.",
@@ -1831,7 +1851,7 @@ export const movies: Movie[] = [
     id: 86,
     title: "Just Like Heaven",
     year: 2005,
-    poster: "/placeholder.svg",
+    poster: justLikeHeavenPoster,
     rating: 6.7,
     genre: "Fantasy Romance",
     description: "A lonely landscape architect falls for the spirit of the beautiful woman who used to live in his new apartment.",
@@ -1848,7 +1868,7 @@ export const movies: Movie[] = [
     id: 87,
     title: "Made of Honor",
     year: 2008,
-    poster: "/placeholder.svg",
+    poster: madeOfHonorPoster,
     rating: 5.6,
     genre: "Romance Comedy",
     description: "Hannah and Tom have been platonic friends for 10 years. He's a serial dater, while she wants marriage but hasn't found Mr. Right. Just as Tom is starting to think that he is relationship material after all, Hannah gets engaged.",
@@ -1865,7 +1885,7 @@ export const movies: Movie[] = [
     id: 88,
     title: "What Happens in Vegas",
     year: 2008,
-    poster: "/placeholder.svg",
+    poster: whatHappensInVegasPoster,
     rating: 6.1,
     genre: "Romance Comedy",
     description: "A man and a woman are compelled, for legal reasons, to live life as a couple for a limited period of time.",
@@ -1882,7 +1902,7 @@ export const movies: Movie[] = [
     id: 89,
     title: "The Ugly Truth",
     year: 2009,
-    poster: "/placeholder.svg",
+    poster: theUglyTruthPoster,
     rating: 6.4,
     genre: "Romance Comedy",
     description: "An uptight television producer takes control of a morning show segment on modern relationships hosted by a misogynistic man.",
@@ -1899,7 +1919,7 @@ export const movies: Movie[] = [
     id: 90,
     title: "Valentine's Day",
     year: 2010,
-    poster: "/placeholder.svg",
+    poster: valentinesDayPoster,
     rating: 5.7,
     genre: "Romance Ensemble",
     description: "Intertwining couples and singles in Los Angeles break-up and make-up based on the pressures and expectations of Valentine's Day.",
@@ -1916,7 +1936,7 @@ export const movies: Movie[] = [
     id: 91,
     title: "Letters to Juliet",
     year: 2010,
-    poster: "/placeholder.svg",
+    poster: lettersToJulietPoster,
     rating: 6.5,
     genre: "Romance Drama",
     description: "Sophie dreams of becoming a writer and travels to Verona, Italy where she meets the 'Secretaries of Juliet'.",
@@ -1933,7 +1953,7 @@ export const movies: Movie[] = [
     id: 92,
     title: "Life as We Know It",
     year: 2010,
-    poster: "/placeholder.svg",
+    poster: lifeAsWeKnowItPoster,
     rating: 6.1,
     genre: "Romance Comedy",
     description: "Two single adults become caregivers to an orphaned girl when their mutual best friends die in an accident.",
@@ -1950,7 +1970,7 @@ export const movies: Movie[] = [
     id: 93,
     title: "New Year's Eve",
     year: 2011,
-    poster: "/placeholder.svg",
+    poster: newYearsEvePoster,
     rating: 5.6,
     genre: "Romance Ensemble",
     description: "The lives of several couples and singles in New York intertwine over the course of New Year's Eve.",
@@ -1967,7 +1987,7 @@ export const movies: Movie[] = [
     id: 94,
     title: "Friends with Benefits",
     year: 2011,
-    poster: "/placeholder.svg",
+    poster: friendsWithBenefitsPoster,
     rating: 6.5,
     genre: "Romance Comedy",
     description: "A young man and woman decide to take their friendship to the next level without becoming a couple, but soon discover that adding sex only leads to complications.",

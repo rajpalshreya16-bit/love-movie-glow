@@ -9,7 +9,7 @@ import ContactSection from '@/components/ContactSection';
 import MovieCard from '@/components/MovieCard';
 import FilterBar from '@/components/FilterBar';
 import { movies, Movie } from '@/data/movies';
-import heroBackground from '@/assets/hero-bg.jpg';
+import heroBackground from '@/assets/dark-hero-bg.jpg';
 
 const Index = () => {
   const [selectedDecade, setSelectedDecade] = useState('all');
@@ -156,6 +156,7 @@ const Index = () => {
                 movie={movie}
                 onLike={handleLike}
                 onShare={handleShare}
+                isLiked={likedMovies.has(movie.id)}
               />
             ))}
           </div>

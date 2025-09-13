@@ -8,50 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Gentle Aesthetic Color Palette */
-    --background: 220 15% 98%;
-    --foreground: 220 10% 15%;
+    /* Dark Theme Color Palette */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
 
-    --card: 220 20% 96%;
-    --card-foreground: 220 10% 20%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 220 15% 95%;
-    --popover-foreground: 220 10% 15%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 210 40% 75%;
-    --primary-foreground: 220 15% 25%;
+    --primary: 270 50% 60%;
+    --primary-foreground: 0 0% 95%;
 
-    --secondary: 180 25% 85%;
-    --secondary-foreground: 180 15% 25%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 85%;
 
-    --muted: 210 15% 90%;
-    --muted-foreground: 210 10% 50%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 160 30% 80%;
-    --accent-foreground: 160 15% 25%;
+    --accent: 270 40% 40%;
+    --accent-foreground: 0 0% 95%;
 
-    --destructive: 0 70% 70%;
-    --destructive-foreground: 0 10% 98%;
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 210 15% 85%;
-    --input: 210 15% 88%;
-    --ring: 210 40% 70%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 270 50% 60%;
 
     /* Custom Design Tokens */
-    --sage: 160 25% 85%;
-    --lavender: 250 30% 88%;
-    --cream: 45 25% 92%;
-    --mist: 200 20% 88%;
-    --stone: 30 15% 90%;
+    --dark-purple: 270 50% 25%;
+    --deep-black: 0 0% 8%;
+    --charcoal: 0 0% 12%;
+    --silver: 0 0% 70%;
+    --midnight: 270 30% 15%;
     
     /* Gradients */
-    --gradient-romantic: linear-gradient(135deg, hsl(var(--sage)), hsl(var(--lavender)));
-    --gradient-dreamy: linear-gradient(180deg, hsl(var(--cream)), hsl(var(--mist)));
-    --gradient-hero: linear-gradient(135deg, hsl(210 40% 85% / 0.8), hsl(180 25% 85% / 0.8), hsl(160 30% 80% / 0.8));
+    --gradient-romantic: linear-gradient(135deg, hsl(var(--dark-purple)), hsl(var(--midnight)));
+    --gradient-dreamy: linear-gradient(180deg, hsl(var(--deep-black)), hsl(var(--charcoal)));
+    --gradient-hero: linear-gradient(135deg, hsl(270 50% 20% / 0.9), hsl(0 0% 8% / 0.9), hsl(270 30% 15% / 0.9));
     
     /* Shadows */
-    --shadow-soft: 0 8px 32px hsl(210 25% 70% / 0.15);
-    --shadow-glow: 0 0 40px hsl(210 40% 75% / 0.25);
+    --shadow-soft: 0 8px 32px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 40px hsl(270 50% 60% / 0.3);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -76,40 +76,41 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 340 15% 8%;
-    --foreground: 340 15% 92%;
+    /* Already using dark theme as default */
+    --background: 0 0% 3%;
+    --foreground: 0 0% 98%;
 
-    --card: 340 15% 10%;
-    --card-foreground: 340 15% 92%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 340 15% 10%;
-    --popover-foreground: 340 15% 92%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 330 70% 75%;
-    --primary-foreground: 340 20% 15%;
+    --primary: 270 60% 70%;
+    --primary-foreground: 0 0% 10%;
 
-    --secondary: 280 30% 20%;
-    --secondary-foreground: 280 15% 85%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 90%;
 
-    --muted: 320 15% 15%;
-    --muted-foreground: 320 15% 60%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 200 40% 25%;
-    --accent-foreground: 200 15% 85%;
+    --accent: 270 50% 50%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 60% 50%;
-    --destructive-foreground: 0 10% 98%;
+    --destructive: 0 70% 70%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 320 15% 20%;
-    --input: 320 15% 18%;
-    --ring: 330 70% 70%;
+    --border: 0 0% 15%;
+    --input: 0 0% 10%;
+    --ring: 270 60% 70%;
 
     /* Dark mode custom colors */
-    --sage: 160 20% 25%;
-    --lavender: 250 25% 25%;
-    --cream: 45 15% 22%;
-    --mist: 200 15% 25%;
-    --stone: 30 10% 22%;
+    --dark-purple: 270 60% 30%;
+    --deep-black: 0 0% 5%;
+    --charcoal: 0 0% 8%;
+    --silver: 0 0% 80%;
+    --midnight: 270 40% 10%;
   }
 }
 
