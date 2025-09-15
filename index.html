@@ -1,29 +1,186 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lovify - Discover Your Perfect Romance Movies</title>
-    <meta name="description" content="Lovify helps you discover the most beautiful Hollywood love stories, from timeless classics to modern romances. Share and save your favorites." />
-    <meta name="author" content="Lovify" />
+    <meta name="description" content="Lovify helps you discover the most beautiful Hollywood love stories, from timeless classics to modern romances. Share and save your favorites.">
+    <meta name="author" content="Lovify">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Meta tags -->
+    <meta property="og:title" content="Lovify - Discover Your Perfect Romance Movies">
+    <meta property="og:description" content="Lovify helps you discover the most beautiful Hollywood love stories, from timeless classics to modern romances.">
+    <meta property="og:type" content="website">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <nav class="nav">
+                <div class="nav-content">
+                    <a href="/" class="nav-brand">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        <span class="nav-title">Lovify</span>
+                    </a>
+                    
+                    <div class="nav-links">
+                        <a href="#movies" class="nav-link">Movies</a>
+                        <a href="#about" class="nav-link">About</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
 
-    <meta property="og:title" content="Lovify - Discover Your Perfect Romance Movies" />
-    <meta property="og:description" content="Lovify helps you discover the most beautiful Hollywood love stories, from timeless classics to modern romances." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-title-wrapper">
+                    <svg class="hero-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    <h1 class="hero-title">
+                        Lov<span class="hero-title-accent">ify</span>
+                    </h1>
+                    <svg class="hero-icon hero-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path>
+                        <path d="M20 3v4"></path>
+                        <path d="M22 5h-4"></path>
+                        <path d="M4 17v2"></path>
+                        <path d="M5 18H3"></path>
+                    </svg>
+                </div>
+                
+                <p class="hero-subtitle">Discover Your Perfect Romance Movies</p>
+                <p class="hero-description">
+                    From timeless classics that defined love on screen to modern masterpieces that capture hearts today. 
+                    Find, save, and share the most beautiful romantic stories ever told.
+                </p>
+                
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToMovies()">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        Explore Movies
+                    </button>
+                    <button class="btn btn-outline" onclick="toggleFavorites()">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        <span id="favorites-btn-text">My Favorites (0)</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Floating Hearts -->
+            <div class="floating-hearts" id="floating-hearts"></div>
+        </section>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+        <!-- Movies Section -->
+        <section id="movies" class="movies-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" id="movies-title">Curated Love Stories</h2>
+                    <p class="section-description" id="movies-description">
+                        From epic romances that defined generations to intimate love stories that capture the heart. 
+                        Every film is carefully selected to showcase the beauty of love in all its forms.
+                    </p>
+                </div>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+                <!-- Filter Bar -->
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-decade="all">All Movies</button>
+                    <button class="filter-btn" data-decade="classics">Classics</button>
+                    <button class="filter-btn" data-decade="1980s">1980s</button>
+                    <button class="filter-btn" data-decade="1990s">1990s</button>
+                    <button class="filter-btn" data-decade="2000s">2000s</button>
+                    <button class="filter-btn" data-decade="2010s">2010s</button>
+                </div>
+
+                <!-- Movies Grid -->
+                <div class="movies-grid" id="movies-grid">
+                    <!-- Movies will be populated by JavaScript -->
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-state" id="empty-state" style="display: none;">
+                    <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <p class="empty-title" id="empty-title">No movies found.</p>
+                    <p class="empty-description" id="empty-description">Try selecting a different filter.</p>
+                    <button class="btn btn-primary" id="empty-action" style="display: none;" onclick="showAllMovies()">
+                        Explore All Movies
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Lovify</h2>
+                    <p class="section-description">
+                        Lovify is your curated destination for discovering the most beautiful romance movies ever made. 
+                        From timeless classics to modern masterpieces, we celebrate love in all its cinematic glory.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Get in Touch</h2>
+                    <p class="section-description">
+                        Have a favorite romantic movie we missed? Want to share your thoughts? We'd love to hear from you!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        <span class="footer-title">Lovify</span>
+                    </div>
+                    <p class="footer-text">
+                        Discovering love stories, one movie at a time.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <div class="toast-title" id="toast-title"></div>
+            <div class="toast-description" id="toast-description"></div>
+        </div>
+    </div>
+
+    <script src="movies.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>

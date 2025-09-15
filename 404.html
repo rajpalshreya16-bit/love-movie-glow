@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Lovify</title>
+    <meta name="description" content="The page you're looking for doesn't exist.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .not-found-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .not-found-content {
+            max-width: 600px;
+        }
+        
+        .not-found-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+        
+        .not-found-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--foreground);
+            margin-bottom: 1rem;
+        }
+        
+        .not-found-description {
+            font-size: 1.125rem;
+            color: var(--muted-foreground);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .not-found-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 640px) {
+            .not-found-title {
+                font-size: 6rem;
+            }
+            
+            .not-found-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .not-found-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="not-found-container">
+        <div class="not-found-content">
+            <h1 class="not-found-title">404</h1>
+            <h2 class="not-found-subtitle">Love Story Not Found</h2>
+            <p class="not-found-description">
+                Oops! It seems like the romantic tale you're looking for has wandered off into the sunset. 
+                Don't worry, there are plenty more love stories waiting to be discovered.
+            </p>
+            <div class="not-found-actions">
+                <a href="index.html" class="btn btn-primary">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    Find Love Stories
+                </a>
+                <button onclick="window.history.back()" class="btn btn-outline">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Go Back
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
